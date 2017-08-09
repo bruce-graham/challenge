@@ -1,0 +1,14 @@
+{
+  "name": "amne",
+  "version": "1.0.0",
+  "description": "Coding challenge ffrom Amne",
+  "main": "amne.js",
+  "scripts": {
+    "run": "nodemon server.js"
+  },
+  "author": "Bruce Graham",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
