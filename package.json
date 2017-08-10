@@ -1,10 +1,10 @@
 {
-  "name": "amne",
+  "name": "Coding Challenge",
   "version": "1.0.0",
-  "description": "Coding challenge ffrom Amne",
-  "main": "amne.js",
+  "description": "Coding challenge from an anonymous company.",
+  "main": "server.js",
   "scripts": {
-    "run": "nodemon server.js"
+    "start": "nodemon server.js"
   },
   "author": "Bruce Graham",
   "license": "ISC",
