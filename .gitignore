@@ -3,3 +3,6 @@ node_modules/
 
 # Instructions
 instructions.txt
+
+# Debug Logs
+npm-debug.log
