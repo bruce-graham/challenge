@@ -4,31 +4,46 @@ const app = express();
 
 const subrangesSum = (n, k, averages) => {
   let avgs = averages.slice();
+  let output = [];
+  let count = 0;
 
-  const subranges = arr => {
-    let total = 0;
+  const subranges = range => {
+    count = 0;
 
-    while(arr.length >= k) {
-      for(var i = 0; i < arr.length; i++) {
-        const index0 = arr[0];
-        const indexI = arr[i];
+    while(range.length >= 2) {
+      let i = 2;
+      let index0 = range[0];
+      let index1 = range[1];
+      let indexI = range[i];
 
-        if (index0 < indexI) {
-          total++;
-        } else if (index0 > indexI) {
-          total--;
+      if (index0 < index1) {
+        count++;
+        while(index0 < indexI && index1 !== indexI && i < k) {
+          count++;
+          i++;
         }
-        arr.shift();
+        range.shift();
+      } else if (index0 > index1) {
+        count--;
+        while(index0 > indexI && index1 !== indexI && i < k) {
+          count--;
+          i++
+        }
+        range.shift();
+      } else {
+        range.shift();
       }
     }
-    console.log(total);
     avgs.shift();
+    output.push(count);
+
     if (avgs.length >= k) {
       subranges(avgs.slice(0, k));
     }
-  }
+  };
 
   subranges(avgs.slice(0, k));
+  output.forEach(num => console.log(num));
 };
 
 fs.readFile(__dirname + '/input.txt', 'utf8', (err, data) => {
